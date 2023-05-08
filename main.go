@@ -20,6 +20,11 @@ func main() {
 
 	router.HandleFunc("/config/{id}", service.DodavanjeKonfiga).Methods("POST")
 	router.HandleFunc("/config-group/{id}", service.DodavanjeGrupe).Methods("POST")
+	router.HandleFunc("/config/{id}", service.GetKonfiga).Methods("GET")
+	router.HandleFunc("/config-group/{id}", service.GetGrupe).Methods("GET")
+	router.HandleFunc("/config/{id}", service.BrisanjeKonfiga).Methods("DELETE")
+	router.HandleFunc("/config-group/{id}", service.BrisanjeGrupe).Methods("DELETE")
+	router.HandleFunc("/config-group/{id}", service.DodavanjeKonfigaUGrupu).Methods("PUT")
 
 	//log.Fatal(http.ListenAndServe(":8080", router))
 
