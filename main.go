@@ -11,10 +11,7 @@ import (
 )
 
 func main() {
-<<<<<<< HEAD
-	fmt.Println("Hello World")
-	fmt.Println("Momcilo Sokic SR552021")
-=======
+
 	quit := make(chan os.Signal)
 	service := NewService()
 
@@ -64,7 +61,5 @@ func NewService() *Service {
 	return &Service{
 		data: make(map[string][]*Config),
 	}
->>>>>>> a2e1e33 (Napravljeni Servis i Config struktura i dodavanje.)
+
 }
-
-
