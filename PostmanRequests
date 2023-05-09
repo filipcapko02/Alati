@@ -1,0 +1,21 @@
+--Add Config
+{
+    "entries":{
+        "key1": "value1",
+        "key2": "value2"
+    }
+}
+--Add ConfigGroup
+{
+    "name": "my-config-group",
+    "configs": [
+        {
+          "name": "config-1",
+          "value": "value-1"
+        },
+        {
+          "name": "config-2",
+          "value": "value-2"
+        }
+      ]
+}
