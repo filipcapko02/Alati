@@ -2,7 +2,10 @@
 FROM golang:latest as builder
 
 # Add Maintainer Info
-LABEL maintainer="Milos Simic <milossimicsimo@gmail.com>"
+
+
+LABEL maintainer="Filip Capko <filipcapko02@gmail.com>"
+
 
 # Set the Current Working Directory inside the container
 WORKDIR /app
@@ -29,8 +32,14 @@ RUN apk --no-cache add ca-certificates
 
 WORKDIR /root/
 
+
+
+EXPOSE 8000
+
 # Copy the Pre-built binary file from the previous stage
 COPY --from=builder /app/main .
+COPY ./swagger.yaml .
+
 
 # Command to run the executable
 CMD ["./main"]
