@@ -1,5 +1,4 @@
-module Alati
-
+module main
 
 go 1.20
 
@@ -43,5 +42,3 @@ require (
 	go.mongodb.org/mongo-driver v1.11.3 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
-
-

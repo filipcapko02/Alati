@@ -1,45 +1,39 @@
 package configstore
 
-import (
-	"fmt"
-)
+// swagger:model Config
+type Config struct {
+	// Id of the config
+	// in: string
+	Id string `json:"Id"`
 
+	// Map of entries of the config
+	// in: map[string]string
+	Entries map[string]string `json:"entries"`
 
+	//Labels of the config
+	//in: string
+	Labels string `json:"labels"`
 
-
-
-const (
-	allConfigs                = "config"
-	allGroups                 = "group"
-	config                    = "config/%s"
-	configVersion             = "config/%s/%s"
-	group                     = "group/%s"
-	groupVersion              = "group/%s/%s"
-	groupVersionConfigLabelId = "gconfig/%s/%s/%s/%s/%s"
-	groupVersionConfigLabel   = "gconfig/%s/%s/%s/%s"
-)
-
-
-
-
-func generateConfigKey(id string, version string) string {
-	if version != "" {
-		return fmt.Sprintf(configVersion, id, version)
-	} else {
-		return fmt.Sprintf(config, id)
-	}
+	//Version of the config
+	//in: string
+	Version string `json:"version"`
 }
 
+type Service struct {
+	Data map[string]*[]Config
+}
 
+// swagger:model CfGroup
+type CfGroup struct {
+	// Id of the cfgroup
+	// in: string
+	Id string `json:"Id"`
 
-func generateGroupKey(id string, version string, configId string, configLabels string) string {
-	if configLabels != "" && configId != "" {
-		return fmt.Sprintf(groupVersionConfigLabelId, id, version, "config", configLabels, configId)
-	} else if configLabels != "" && configId == "" {
-		return fmt.Sprintf(groupVersionConfigLabel, id, version, "config", configLabels)
-	} else if configLabels == "" && configId == "" && version != "" {
-		return fmt.Sprintf(groupVersion, id, version)
-	} else {
-		return fmt.Sprintf(group, id)
-	}
+	// Configurations of the cfgroup
+	// in: []*Config
+	Configurations []*Config `json:"Configurations"`
+
+	// Version of the cfgroup
+	// in: string
+	Version string `json:"version"`
 }

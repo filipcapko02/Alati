@@ -289,10 +289,6 @@ func (cs *ConfigStore) GetGroupConfigByLabel(groupId string, version string, lab
 	return configs, nil
 }
 
-
-
-
-
 // metoda za brisanje jedne konfiguracije iz grupe
 func (cs *ConfigStore) DeleteGroupConfigByLabelAndId(groupId string, version string, labels string, configId string) (map[string]string, error) { //done
 	kv := cs.cli.KV()
@@ -317,22 +313,11 @@ func (cs *ConfigStore) DeleteGroupConfigByLabelAndId(groupId string, version str
 		}
 	}
 
-
-
-
-
-
-
-
 	for i := 0; i < len(oldCfGroup.Configurations); i++ {
 		if oldCfGroup.Configurations[i].Id != configId {
 			newCfGroup.Configurations = append(newCfGroup.Configurations, oldCfGroup.Configurations[i])
 		}
 	}
-
-
-
-
 
 	newCfGroup.Id = oldCfGroup.Id
 	newCfGroup.Version = oldCfGroup.Version
@@ -410,5 +395,4 @@ func (cs *ConfigStore) PutGroupConfigByGroupId(config *Config, groupId string) (
 
 	}
 	return newCfGroup, nil
-	
 }

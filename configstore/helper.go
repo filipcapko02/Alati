@@ -15,10 +15,6 @@ const (
 	groupVersionConfigLabel   = "gconfig/%s/%s/%s/%s"
 )
 
-
-
-
-
 func generateConfigKey(id string, version string) string {
 	if version != "" {
 		return fmt.Sprintf(configVersion, id, version)
@@ -26,11 +22,6 @@ func generateConfigKey(id string, version string) string {
 		return fmt.Sprintf(config, id)
 	}
 }
-
-
-
-
-
 func generateGroupKey(id string, version string, configId string, configLabels string) string {
 	if configLabels != "" && configId != "" {
 		return fmt.Sprintf(groupVersionConfigLabelId, id, version, "config", configLabels, configId)
